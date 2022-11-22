@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap');
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+.cont-game{
+    height: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.area-game{
+    width: 100%;
+    height: 100%;
+    background-color: #fffaf0;
+}
+
+.btn-start{
+    position: absolute;
+    background-color: blueviolet;
+    width: 50%;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.btn-start:active{
+    outline: solid 3px rgb(54, 72, 104);
+}
