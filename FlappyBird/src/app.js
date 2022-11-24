@@ -3,17 +3,27 @@ const startBtn = document.querySelector('.btn-start');
 const gameArea = document.querySelector('.area-game');
 const gameMsg = document.querySelector('.msg-game');
 
+let keys = {};
+let bird = document.createElement('div');
+let wing = document.createElement('div');
+
 function gameStart() {
     gameMsg.classList.add('hidden');
     startBtn.classList.add('hidden');
+    bird.setAttribute('class', 'bird');
+    wing.setAttribute('class', 'wing');
+    bird.appendChild(wing);
+    gameArea.appendChild(bird);
 }
 
-function pressOn(){
-    console.log('on!')
+function pressOn(e){
+    keys[e.code] = true;
+    console.log(keys);
 }
 
-function pressOff(){
-    console.log('off!')
+function pressOff(e){
+    keys[e.code] = false;
+    console.log(keys);
 }
 
 

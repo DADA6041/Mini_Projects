@@ -17,12 +17,12 @@ body {
 .area-game{
     width: 100%;
     height: 100%;
-    background-color: #fffaf0;
+    background-color: #F6E7C3;
 }
 
 .btn-start{
     position: absolute;
-    background-color: blueviolet;
+    background-color: #523C30;
     width: 50%;
     color: #fff;
     left: 50%;
@@ -40,4 +40,27 @@ body {
 
 .btn-start:active{
     outline: solid 3px rgb(54, 72, 104);
+}
+
+.bird{
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    background-image: url(./images/bird.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: aquamarine; */
+    width: 70px;
+    height: 50px;
+}
+.wing{
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    background-image: url(./images/wing.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: aqua; */
+    width: 30px;
+    height: 18px;
 }
