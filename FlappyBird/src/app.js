@@ -6,6 +6,11 @@ const gameMsg = document.querySelector('.msg-game');
 let keys = {};
 let bird = document.createElement('div');
 let wing = document.createElement('div');
+let player = {
+    x: 0,
+    y: 0,
+    speed: 2
+};
 
 function gameStart() {
     gameMsg.classList.add('hidden');
@@ -14,6 +19,27 @@ function gameStart() {
     wing.setAttribute('class', 'wing');
     bird.appendChild(wing);
     gameArea.appendChild(bird);
+    player.x = bird.offsetLeft;
+    player.y = bird.offsetTop;
+    window.requestAnimationFrame(playGame);
+}
+
+function playGame(){
+    if(keys.ArrowLeft){
+        player.x -= player.speed;
+    }
+    if(keys.ArrowRight){
+        player.x += player.speed;
+    }
+    if(keys.ArrowUp){
+        player.y -= player.speed;
+    }
+    if(keys.ArrowDown){
+        player.y += player.speed;
+    }
+    bird.style.left = player.x + "px";
+    bird.style.top = player.y + "px";
+    window.requestAnimationFrame(playGame);
 }
 
 function pressOn(e){
