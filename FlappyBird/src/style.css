@@ -64,3 +64,14 @@ body {
     width: 30px;
     height: 18px;
 }
+.score {
+    position: fixed;
+    margin-top: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 700;
+    color: #523C30;
+}
