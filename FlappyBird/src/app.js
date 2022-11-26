@@ -9,7 +9,7 @@ let wing = document.createElement('div');
 let player = {
     x: 0,
     y: 0,
-    speed: 5
+    speed: 4
 };
 
 function gameStart() {
@@ -36,8 +36,8 @@ function playGame(){
         player.x += player.speed;
         move = true;
     }
-    if(keys.ArrowUp && player.y > -20){
-        player.y -= player.speed;
+    if(keys.ArrowUp || keys.Space && player.y > -20){
+        player.y -= player.speed * 4;
         move = true;
     }
     if(keys.ArrowDown && player.y < gameArea.offsetHeight - bird.offsetHeight + 20){
@@ -48,6 +48,8 @@ function playGame(){
         wing.pos = wing.pos === 10? 15 : 10;
         wing.style.top = wing.pos +  "px";
     }
+
+    player.y += player.speed * 2;
 
     bird.style.left = player.x + "px";
     bird.style.top = player.y + "px";
