@@ -96,3 +96,8 @@ body {
     font-size: 0.8em;
     word-break: keep-all;
 }
+
+.wall{
+    position: absolute;
+    width: 100px;
+}

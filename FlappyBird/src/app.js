@@ -12,6 +12,13 @@ let player = {
     isplay: false
 };
 
+let wall = {
+    startPos: 0,
+    spaceBetweenRow: 0,
+    spaceBetweenCol: 0,
+    wallCount: 0
+};
+
 function gameStart() {
     player.isplay = true;
     player.score = 0;
@@ -28,13 +35,63 @@ function gameStart() {
     gameArea.appendChild(bird);
     player.x = bird.offsetLeft;
     player.y = bird.offsetTop;
+
+    wall.startPos = 0;
+    wall.spaceBetweenRow = 400;
+    wall.wallCount = Math.floor(gameArea.offsetWidth / wall.spaceBetweenRow);
+
+    for(let i = 0; i < wall.wallCount; i++){
+        createWall(wall.startPos * wall.spaceBetweenRow);
+        wall.startPos++;
+    }
     window.requestAnimationFrame(playGame);
 }
 
-function playGame(){
+function createWall(wallPos) {
+    let totalHeight = gameArea.offsetHeight;
+    let totalWidth = gameArea.offsetWidth;
+    let wallUp = document.createElement('div');
+    wallUp.classList.add('wall');
+    wallUp.height = Math.floor(Math.random() * 350);
+    wallUp.style.height = wallUp.height + "px";
+    wallUp.style.left = totalWidth + wallPos + "px";
+    wallUp.x = totalWidth + wallPos;
+    wallUp.style.top = "0px";
+    wallUp.style.backgroundColor = "orange";
+    gameArea.appendChild(wallUp);
+
+    wall.spaceBetweenCol = Math.floor(Math.random() * 250) + 150;
+    let wallDown = document.createElement('div');
+    wallDown.classList.add('wall');
+    wallDown.style.height = totalHeight - wallUp.height - wall.spaceBetweenCol + "px";
+    wallDown.style.left = totalWidth + wallPos + "px";
+    wallDown.x = totalWidth + wallPos;
+    wallDown.style.bottom = "0px";
+    wallDown.style.backgroundColor = "black";
+    gameArea.appendChild(wallDown);
+}
+
+function moveWalls() {
+    let walls = document.querySelectorAll('.wall');
+    let counter = 0;
+    walls.forEach((item) => {
+        item.x -= player.speed;
+        item.style.left = item.x + "px";
+        if(item.x < 0){
+            item.parentElement.removeChild(item);
+            counter++;
+        }
+    });
+    for(let i = 0; i < counter / 2; i++){
+        createWall(0);
+    }
+}
+
+function playGame() {
     if(player.isplay){
         let bird = document.querySelector('.bird');
         let wing = document.querySelector('.wing');
+        moveWalls();
         let move = false;
         if(keys.ArrowLeft && player.x > -20){
             player.x -= player.speed;
@@ -71,7 +128,7 @@ function playGame(){
     }
 }
 
-function gameOver(){
+function gameOver() {
     let bird = document.querySelector('.bird');
     let wing = document.querySelector('.wing');
     player.isplay = false;
@@ -86,12 +143,12 @@ function gameOver(){
     wing.remove();
 }
 
-function pressOn(e){
+function pressOn(e) {
     keys[e.code] = true;
 
 }
 
-function pressOff(e){
+function pressOff(e) {
     keys[e.code] = false;
 
 }
