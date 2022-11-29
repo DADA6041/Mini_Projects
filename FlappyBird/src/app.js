@@ -57,7 +57,7 @@ function createWall(wallPos) {
     wallUp.style.left = totalWidth + wallPos + "px";
     wallUp.x = totalWidth + wallPos;
     wallUp.style.top = "0px";
-    wallUp.style.backgroundColor = "orange";
+    wallUp.style.backgroundColor = "#898a93";
     gameArea.appendChild(wallUp);
 
     wall.spaceBetweenCol = Math.floor(Math.random() * 250) + 150;
@@ -67,11 +67,11 @@ function createWall(wallPos) {
     wallDown.style.left = totalWidth + wallPos + "px";
     wallDown.x = totalWidth + wallPos;
     wallDown.style.bottom = "0px";
-    wallDown.style.backgroundColor = "black";
+    wallDown.style.backgroundColor = "#844f2e";
     gameArea.appendChild(wallDown);
 }
 
-function moveWalls() {
+function moveWalls(bird) {
     let walls = document.querySelectorAll('.wall');
     let counter = 0;
     walls.forEach((item) => {
@@ -81,17 +81,32 @@ function moveWalls() {
             item.parentElement.removeChild(item);
             counter++;
         }
+        if(isCrash(item, bird)){
+            gameOver();
+        }
     });
+
     for(let i = 0; i < counter / 2; i++){
         createWall(0);
     }
+}
+
+function isCrash(wall, bird){
+    let wallRect = wall.getBoundingClientRect();
+    let birdRect = bird.getBoundingClientRect();
+    return(
+        wallRect.bottom > birdRect.top &&
+        wallRect.top < birdRect.bottom &&
+        wallRect.left < birdRect.right &&
+        wallRect.right > birdRect.left
+    )
 }
 
 function playGame() {
     if(player.isplay){
         let bird = document.querySelector('.bird');
         let wing = document.querySelector('.wing');
-        moveWalls();
+        moveWalls(bird);
         let move = false;
         if(keys.ArrowLeft && player.x > -20){
             player.x -= player.speed;
@@ -130,7 +145,7 @@ function playGame() {
 
 function gameOver() {
     let bird = document.querySelector('.bird');
-    let wing = document.querySelector('.wing');
+    const walls = document.querySelectorAll('.wall');
     player.isplay = false;
     score.classList.add('hidden');
     gameMsg.classList.remove('hidden');
@@ -140,7 +155,8 @@ function gameOver() {
     <p class="restart">다시 시작하려면 여기를 누르세요 :)</p>
     `
     bird.remove();
-    wing.remove();
+    walls.forEach(item => item.remove());
+    // wing.remove();
 }
 
 function pressOn(e) {
