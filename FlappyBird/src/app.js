@@ -7,7 +7,7 @@ let keys = {};
 let player = {
     x: 0,
     y: 0,
-    speed: 4,
+    speed: 5,
     score: 0,
     isplay: false
 };
@@ -37,8 +37,8 @@ function gameStart() {
     player.y = bird.offsetTop;
 
     wall.startPos = 0;
-    wall.spaceBetweenRow = 400;
-    wall.wallCount = Math.floor(gameArea.offsetWidth / wall.spaceBetweenRow);
+    wall.spaceBetweenRow = 350;
+    wall.wallCount = Math.floor(gameArea.offsetWidth / wall.spaceBetweenRow) + 1;
 
     for(let i = 0; i < wall.wallCount; i++){
         createWall(wall.startPos * wall.spaceBetweenRow);
@@ -77,7 +77,7 @@ function moveWalls(bird) {
     walls.forEach((item) => {
         item.x -= player.speed;
         item.style.left = item.x + "px";
-        if(item.x < 0){
+        if(item.x + 100 < 0){
             item.parentElement.removeChild(item);
             counter++;
         }
@@ -117,7 +117,7 @@ function playGame() {
             move = true;
         }
         if((keys.ArrowUp || keys.Space) && player.y > -20){
-            player.y -= player.speed * 4;
+            player.y -= player.speed * 3;
             move = true;
         }
         if(keys.ArrowDown && player.y < gameArea.offsetHeight - bird.offsetHeight){
@@ -129,7 +129,7 @@ function playGame() {
             wing.style.top = wing.pos + "px";
         }
     
-        player.y += player.speed * 2;
+        player.y += player.speed * 1.5;
 
         if(player.y > gameArea.offsetHeight){
             gameOver();
