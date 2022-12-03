@@ -156,20 +156,22 @@ function gameOver() {
     `
     bird.remove();
     walls.forEach(item => item.remove());
-    // wing.remove();
 }
 
 function pressOn(e) {
     keys[e.code] = true;
-
 }
 
 function pressOff(e) {
     keys[e.code] = false;
-
 }
 
 startBtn.addEventListener('click', gameStart);
 gameMsg.addEventListener('click', gameStart);
 document.addEventListener('keydown', pressOn);
 document.addEventListener('keyup', pressOff);
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' && !gameMsg.classList.contains('hidden')){
+        gameStart();
+    }
+})
