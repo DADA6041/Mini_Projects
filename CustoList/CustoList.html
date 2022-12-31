@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Custory</title>
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://kit.fontawesome.com/9e1a07a81c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="cont-bucket">
+        <header class="header-list">
+            <h1>My bucket List</h1>
+        </header>
+        <div class="cont-list">
+            <div class="cont-input">
+                <label for="inp-wish" class="sr-only">버킷리스트 입력창</label>
+                <input id="inp-wish" type="text" placeholder="예) 번지점프" maxlength="25">
+                <button class="btn-add" type="button"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <ul class="list-wish">
+                <li>
+                    번지점프
+                    <button type="button"><i class="fa-solid fa-minus"></i></button>
+                </li>
+                <li>
+                    패러글라이딩
+                    <button type="button"><i class="fa-solid fa-minus"></i></button>
+                </li>
+                <li>
+                    초호화 크루즈여행
+                    <button type="button"><i class="fa-solid fa-minus"></i></button>
+                </li>
+                <li>
+                    제주 한 달 살이
+                    <button type="button"><i class="fa-solid fa-minus"></i></button>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="src/app.js"></script>
+</body>
+</html>
