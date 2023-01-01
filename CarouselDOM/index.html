@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lottery</title>
+        <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <article id="app">
+            <h2 class="sr-only">jackpot</h2>
+            <div class="btnWrap">
+                <button id="btn-left" type="button"><img class="btn-left" src="./images/goldArrow.png" alt="왼쪽버튼"></button>
+                
+                <button id="btn-right" type="button"><img class="btn-right" src="./images/goldArrow.png" alt="오른쪽버튼"></button>
+            </div>
+            <ul class="list-item">
+                <!-- <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li>
+                <li><img src="./images/card.png" alt=""></li> -->
+            </ul>
+        </article>
+        <script>
+
+            const arrPic = [
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png",
+                "./images/card.png"
+            ];
+
+            const center = document.querySelector('.list-item');
+
+            arrPic.forEach(item => {
+                const elLi = document.createElement('li');
+                elLi.innerHTML = `<img src="${item}" alt="">`;
+                center.appendChild(elLi);
+            });
+
+            const items = document.querySelectorAll('.list-item li');
+
+            const radius = items[0].offsetWidth * items.length /3.14 / 2;
+            items.forEach((item, index) => {
+                console.log(index);
+                item.style.transform = `rotateY(${360 / items.length * index}deg) translateZ(${radius}px)`;
+            });
+
+            
+            const angle = 360 / items.length;
+            let currAngle = 0;
+
+            const leftBtn = document.querySelector('#btn-left');
+            const rightBtn = document.querySelector('#btn-right');
+
+            function leftLot() {
+                center.style.transform = `translate(-50%, -50%) rotateY(${currAngle}deg)`
+                currAngle -= angle;
+            }
+            function rightLot() {
+                center.style.transform = `translate(-50%, -50%) rotateY(${currAngle}deg)`
+                currAngle += angle;
+            }
+            
+            leftBtn.addEventListener('click', leftLot);
+
+            rightBtn.addEventListener('click', rightLot);
+
+
+
+            function l(event) {
+					console.log(event);
+			}
+
+            // function rocking(event) {
+            //     if (event.button === 0) {
+            //         rock.classList.add('left');
+            //         console.log('왼쪽으로!');
+            //     } else if (event.button === 2) {
+            //         rock.classList.add('right');
+            //         console.log('오른쪽으로!');
+            //     }
+
+            //     setTimeout(reset, 800);
+            // }
+        </script>
+    </body>
+</html>
