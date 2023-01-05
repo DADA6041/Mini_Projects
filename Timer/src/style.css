@@ -1,0 +1,149 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root{
+    font-family: 'Pretendard-Regular';
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+body {
+    /* width: 1280px; */
+    background: radial-gradient(96.74% 276.79% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tit-image {
+    margin-top: 72px;
+    margin-bottom: 60px;
+    width: 244px;
+}
+
+.tit-image img {
+    width: 100%;
+}
+
+.cont-timer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 360px;
+    background: linear-gradient(144.07deg, #5572BB 2.13%, #374B7C 102.97%);
+    box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
+    border-radius: 16px;
+}
+
+.tit-timer{
+    font-size: 24px;
+    border-bottom: 1px solid #3D538A;
+    padding: 0 120px 23px;
+    color: #fff;
+}
+
+.cont-counter{
+    display: flex;
+}
+
+.cont-counter .cont-hour,
+.cont-counter .cont-min,
+.cont-counter .cont-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+.cont-counter div + div {
+    margin-left: 8px;
+}
+
+.cont-hour img,
+.cont-min img,
+.cont-sec img{
+    width: 80px;
+}
+
+.cont-counter label {
+    font-size: 12px;
+    color : #A5B6EE;
+}
+
+.cont-counter .set-time {
+    width: 53px;
+    height: 48px;
+    text-align: center;
+    outline: none;
+    border: 0 solid transparent;
+    background-color: transparent;
+    font-family: 'Pretendard-Regular';
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    /* transform: translate(0, -25%); */
+}
+
+.set-time::placeholder{
+    color: #fff;
+}
+
+.cont-counter .cont-dot-one,
+.cont-counter .cont-dot-two {
+    align-self: center;
+    margin-top: 12px;
+    width: 6px;
+}
+.cont-counter .cont-dot-one img,
+.cont-counter .cont-dot-two img{
+    width: 100%;
+}
+.cont-counter .cont-dot-one img + img,
+.cont-counter .cont-dot-two img + img {
+    margin-top: 14px;
+}
+
+.cont-timer .btn-start,
+.cont-timer .btn-pause,
+.cont-timer .btn-reset{
+    width: 112px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cont-timer .btn-pause{
+    position: absolute;
+    z-index: 10;
+}
+
+.hidden{
+    display: none;
+}
+.cont-timer .btn-start img,
+.cont-timer .btn-pause img,
+.cont-timer .btn-reset img{
+    width: 100%;
+}
+
+.copyright{
+    margin-top: 60px;
+    margin-bottom: 103px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8596BF;
+}

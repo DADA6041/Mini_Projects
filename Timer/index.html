@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="./src/reset.css">
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <article class="container">
+        <h1 class="tit-image">
+            <img src="./src/images/weniv-logo.png" alt="위니브">
+        </h1>
+        <div class="cont-timer">
+            <h2 class="tit-timer">TIMER</h2>
+            <div class="cont-counter">
+                <div class="cont-hour">
+                    <label for="inpHrs">HRS</label>
+                    <input id="inpHrs" class="set-time txt-hrs" type="number" max="99" min="0"  placeholder="00">
+                    <img src="./src/images/box.png" alt="hours">
+                </div>
+                <div class="cont-dot-one">
+                    <img src="./src/images/dot.png" alt="">
+                    <img src="./src/images/dot.png" alt="">
+                </div>
+                <div class="cont-min">
+                    <!-- <p>MIN</p> -->
+                    <label for="inpMin">MIN</label>
+                    <input id="inpMin" class="set-time txt-min" type="number" max="60" min="0" placeholder="00">
+                    <img src="./src/images/box.png" alt="minutes">
+                </div>
+                <div class="cont-dot-two">
+                    <img src="./src/images/dot.png" alt="">
+                    <img src="./src/images/dot.png" alt="">
+                </div>
+                <div class="cont-sec">
+                    <label for="inpSec">SEC</label>
+                    <input id="inpSec" class="set-time txt-sec" type="number" max="60" min="0"  placeholder="00">
+                    <img src="./src/images/box.png" alt="seconds">
+                    <!-- <span class="txt-sec">00</span> -->
+                </div>
+            </div>
+            <div class="cont-btn">
+                <button type="button" class="btn-pause hidden">
+                    <img src="./src/images/pause.png" alt="멈춤버튼">
+                </button>
+                <button type="button" class="btn-start" disabled>
+                    <img src="./src/images/start-disabled.png" alt="시작버튼">
+                </button>
+                <button type="button" class="btn-reset" disabled>
+                    <img src="./src/images/reset-disabled.png" alt="리셋버튼">
+                </button>
+            </div>
+        </div>
+        <small class="copyright">&copy;WENIV CORP.</small>
+    </article>
+
+    <script src="./src/app.js"></script>
+</body>
+</html>
