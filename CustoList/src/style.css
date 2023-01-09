@@ -71,17 +71,29 @@ body{
 
 .cont-list .cont-input input{
     flex-grow: 1;
-    padding: 5px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(202, 213, 246);
+    border-radius: 5px;
+}
+
+.cont-list .cont-input input::placeholder{
+  color: rgb(84, 84, 84);
+  font-weight: bold;
 }
 
 .cont-list .cont-input button{
     flex-shrink: 1;
     flex-basis: 40px;
+    background-color: #8765f7;
+    color: #fff;
+    border-radius: 5px;
 }
 
 .list-wish li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
     border: solid 3px #aaaaaa;
     border-radius: 5px;
@@ -98,7 +110,11 @@ body{
 }
 
 .list-wish li button{
+    background-color: #8765f7;
+    color: #fff;
     flex-basis: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 
