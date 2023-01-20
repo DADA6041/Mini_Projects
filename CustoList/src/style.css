@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Noto+Sans+KR:wght@400;900&display=swap');
 
-/*
-font-family: 'Kanit', sans-serif;
-font-family: 'Noto Sans KR', sans-serif;
-*/
-
 :root {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
+    --main-color: #8765f7;
+    --sub-color: #a4b6ec;
+    --bg-color: #dbf0ff;
 }
 
-li, button{
+li,
+button {
     cursor: pointer;
 }
-body{
-    background-color: rgb(219, 240, 255);
+
+body {
+    background-color: var(--bg-color);
 }
 
 .sr-only {
@@ -33,15 +33,15 @@ body{
     width: 500px;
     background: #efefef;
     margin: 50px auto;
-    filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
     border-radius: 20px;
 }
 
-.header-list{
+.header-list {
     width: 100%;
     height: 70px;
     text-align: center;
-    background-color: rgb(164, 182, 236);
+    background-color: var(--sub-color);
     color: #100634;
     border-radius: 20px 20px 0 0;
 }
@@ -52,10 +52,12 @@ body{
     font-family: 'Kanit', sans-serif;
     font-weight: 600;
 }
-.header-list h1::before{
+
+.header-list h1::before {
     content: '🍀';
 }
-.header-list h1::after{
+
+.header-list h1::after {
     content: '🍀';
 }
 
@@ -63,33 +65,42 @@ body{
     padding: 30px;
 }
 
-.cont-list .cont-input{
+.cont-list .cont-input {
     display: flex;
     margin-bottom: 20px;
     gap: 10px;
 }
 
-.cont-list .cont-input input{
+.cont-list .cont-input input {
+    font-family: 'Noto Sans KR', sans-serif;
     flex-grow: 1;
     padding: 10px;
     border: none;
-    background-color: rgb(202, 213, 246);
+    background-color: var(--sub-color);
     border-radius: 5px;
 }
 
-.cont-list .cont-input input::placeholder{
-  color: rgb(84, 84, 84);
-  font-weight: bold;
+.cont-list .cont-input input:focus{
+    outline: none;
 }
 
-.cont-list .cont-input button{
+.cont-list .cont-input input::placeholder {
+    color: rgb(84, 84, 84);
+    /* font-weight: bold; */
+}
+
+.cont-list .cont-input button {
     flex-shrink: 1;
     flex-basis: 40px;
-    background-color: #8765f7;
+    background-color: var(--main-color);
     color: #fff;
     border-radius: 5px;
 }
 
+.list-wish{
+    max-height: 300px;
+    overflow-y: auto;
+}
 .list-wish li {
     display: flex;
     justify-content: space-between;
@@ -105,12 +116,12 @@ body{
 }
 
 .list-wish li:hover {
-    border: solid 3px #8765f7;
-    color: #8765f7;
+    border: solid 3px var(--main-color);
+    color: var(--main-color);
 }
 
-.list-wish li button{
-    background-color: #8765f7;
+.list-wish li button {
+    background-color: var(--main-color);
     color: #fff;
     flex-basis: 30px;
     padding: 5px 10px;
