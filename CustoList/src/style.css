@@ -128,7 +128,10 @@ body {
     border-radius: 5px;
 }
 
-
+.color-controls {
+    text-align: center;
+    padding: 0 0 20px;
+}
 
 
 
