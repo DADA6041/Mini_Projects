@@ -1,0 +1,29 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.sr-only {
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+}
+
+/* reset 끝 */
+
+
+#container {
+    width: 500px;
+    height: 150px;
+    margin: 50px auto 0;
+    border: 2px solid #f8cbcb;
+    border-radius: 10px;
+}
